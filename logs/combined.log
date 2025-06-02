@@ -1,0 +1,15 @@
+{"code":"ENOTFOUND","hostname":"_mongodb._tcp.visioneerlist.undefined.mongodb.net","level":"error","message":"MongoDB connection error: querySrv ENOTFOUND _mongodb._tcp.visioneerlist.undefined.mongodb.net","stack":"Error: querySrv ENOTFOUND _mongodb._tcp.visioneerlist.undefined.mongodb.net\n    at QueryReqWrap.onresolve [as oncomplete] (node:internal/dns/promises:293:17)","syscall":"querySrv","timestamp":"2025-06-02T04:16:22.700Z"}
+{"level":"info","message":"Connected to MongoDB","timestamp":"2025-06-02T04:18:27.958Z"}
+{"level":"info","message":"Server running on port 8000","timestamp":"2025-06-02T04:18:27.961Z"}
+{"level":"info","message":"Shutting down server...","timestamp":"2025-06-02T04:28:26.738Z"}
+{"level":"info","message":"Connected to MongoDB","timestamp":"2025-06-02T04:28:28.588Z"}
+{"level":"info","message":"Server running on port 8000","timestamp":"2025-06-02T04:28:28.591Z"}
+{"level":"info","message":"Shutting down server...","timestamp":"2025-06-02T04:29:26.307Z"}
+{"level":"info","message":"Connected to MongoDB","timestamp":"2025-06-02T04:29:28.070Z"}
+{"level":"info","message":"Server running on port 8000","timestamp":"2025-06-02T04:29:28.073Z"}
+{"level":"info","message":"Shutting down server...","timestamp":"2025-06-02T04:29:39.968Z"}
+{"level":"info","message":"Connected to MongoDB","timestamp":"2025-06-02T04:29:43.049Z"}
+{"level":"info","message":"Server running on port 8000","timestamp":"2025-06-02T04:29:43.054Z"}
+{"level":"info","message":"Shutting down server...","timestamp":"2025-06-02T04:33:39.958Z"}
+{"level":"info","message":"Connected to MongoDB","timestamp":"2025-06-02T04:33:41.797Z"}
+{"level":"info","message":"Server running on port 8000","timestamp":"2025-06-02T04:33:41.800Z"}
