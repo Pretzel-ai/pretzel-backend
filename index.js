@@ -10,7 +10,6 @@ import { createRequire } from "module"
 const require = createRequire(import.meta.url)
 const pdf = require("pdf-parse")
 import bcrypt from "bcrypt"
-import OpenAI from "openai"
 import mammoth from "mammoth"
 
 const app = express()
@@ -19,7 +18,6 @@ const server = createServer(app)
 dotenv.config()
 
 const PORT = process.env.PORT || 8000
-const openai = new OpenAI({ apiKey: process.env["OPENAI"] })
 const uri = `mongodb+srv://${process.env["DB_USERNAME"]}:${process.env["DB_PASSWORD"]}@visioneerlist.${process.env["DB_KEY"]}.mongodb.net/?retryWrites=true&w=majority`
 const client = new MongoClient(uri, {
     useNewUrlParser: true,
@@ -239,53 +237,6 @@ async function run() {
         const fileBuffer = Buffer.from(fileBinaryString, "binary")
         const result = await mammoth.convertToHtml({ buffer: fileBuffer })
         res.send(result.value)
-    })
-
-    // const assistant = await openai.beta.assistants.create({
-    //     instructions:
-    //         "You are a customer support chatbot. Use your knowledge base to best respond to customer queries.",
-    //     model: "gpt-4-1106-preview",
-    //     tools: [{ type: "retrieval" }],
-    //     file_ids: ["file-AJ0wrR1ZU5ujZTEYgDT1fjJV"],
-    // })
-    // console.log(assistant)
-
-    const messages = {}
-    app.post("/gpt", async (req, res) => {
-        const { query, fileId, context } = req.body
-        if (!query || !fileId) {
-            return res.status(400).json({ error: true, message: "Missing required fields" })
-        }
-
-        if (!messages[fileId]) {
-            messages[fileId] = []
-            if (context) messages[fileId].push({ role: "system", content: context })
-        } else context && (messages[fileId][0].content = context)
-
-        messages[fileId].push({
-            role: "user",
-            content: query,
-        })
-
-        try {
-            const response = await openai.chat.completions.create({
-                model: "gpt-3.5-turbo",
-                messages: messages[fileId],
-                temperature: 1,
-                max_tokens: 512,
-                top_p: 1,
-                frequency_penalty: 0,
-                presence_penalty: 0,
-            })
-            messages[fileId].push({
-                role: "assistant",
-                content: response.choices[0].message.content,
-            })
-
-            res.send(response.choices[0].message.content)
-        } catch (err) {
-            res.status(500).json({ error: true, message: err.message })
-        }
     })
 
     app.post("/utils/pdf", async (req, res) => {
