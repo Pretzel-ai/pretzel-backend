@@ -51,3 +51,14 @@ export const processDocxSchema = Joi.object({
 export const processPDFSchema = Joi.object({
     url: Joi.string().uri().required(),
 })
+
+export const chatGptSchema = Joi.object({
+    messages: Joi.array()
+        .items(
+            Joi.object({
+                role: Joi.string().valid("system", "user", "assistant").required(),
+                content: Joi.string().required(),
+            })
+        )
+        .required(),
+})

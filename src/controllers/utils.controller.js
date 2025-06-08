@@ -1,6 +1,7 @@
 import fetch from "node-fetch"
 import logger from "../config/logger.js"
 import { createRequire } from "module"
+import { OpenAI } from "openai"
 
 const require = createRequire(import.meta.url)
 const mammoth = require("mammoth")
@@ -28,5 +29,29 @@ export const processPDF = async (req, res, next) => {
     } catch (err) {
         logger.error("Process PDF error:", err)
         next(err)
+    }
+}
+
+const openai = new OpenAI({
+    apiKey: process.env.OPENAI_API_KEY,
+})
+
+export const chatWithGpt = async (req, res) => {
+    const { messages } = req.body
+
+    if (!Array.isArray(messages)) {
+        return res.status(400).json({ error: "Message history must be an array." })
+    }
+
+    try {
+        const response = await openai.chat.completions.create({
+            model: "gpt-4",
+            messages: messages,
+        })
+
+        res.json({ response: response.choices[0].message })
+    } catch (error) {
+        console.error("OpenAI Error:", error)
+        res.status(500).json({ error: "Failed to process GPT request." })
     }
 }

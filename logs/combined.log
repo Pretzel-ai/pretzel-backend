@@ -13,3 +13,16 @@
 {"level":"info","message":"Shutting down server...","timestamp":"2025-06-02T04:33:39.958Z"}
 {"level":"info","message":"Connected to MongoDB","timestamp":"2025-06-02T04:33:41.797Z"}
 {"level":"info","message":"Server running on port 8000","timestamp":"2025-06-02T04:33:41.800Z"}
+{"level":"info","message":"Connected to MongoDB","timestamp":"2025-06-07T03:19:41.499Z"}
+{"level":"info","message":"Server running on port 80","timestamp":"2025-06-07T03:19:41.506Z"}
+{"level":"info","message":"Shutting down server...","timestamp":"2025-06-07T03:33:54.946Z"}
+{"level":"info","message":"Connected to MongoDB","timestamp":"2025-06-07T03:33:57.859Z"}
+{"level":"info","message":"Server running on port 80","timestamp":"2025-06-07T03:33:57.862Z"}
+{"level":"info","message":"Shutting down server...","timestamp":"2025-06-07T03:36:14.958Z"}
+{"level":"info","message":"Connected to MongoDB","timestamp":"2025-06-07T03:36:17.043Z"}
+{"level":"info","message":"Server running on port 80","timestamp":"2025-06-07T03:36:17.045Z"}
+{"level":"info","message":"Shutting down server...","timestamp":"2025-06-07T03:37:23.798Z"}
+{"level":"info","message":"Connected to MongoDB","timestamp":"2025-06-07T03:37:25.663Z"}
+{"level":"info","message":"Server running on port 80","timestamp":"2025-06-07T03:37:25.668Z"}
+{"level":"info","message":"Connected to MongoDB","timestamp":"2025-06-08T03:25:07.571Z"}
+{"level":"info","message":"Server running on port 80","timestamp":"2025-06-08T03:25:07.578Z"}
